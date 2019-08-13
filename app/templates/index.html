@@ -18,7 +18,7 @@
 <body style="overflow-x: hidden">
   <main style="font-family: 'Advent Pro'">
   <div style="display: flex;justify-content: center; margin-top: 3rem" class="text-center">
-  <h2 style="text-align: center;font-family: 'Luckiest Guy', cursive; letter-spacing: 4px; font-size: 3.5em; font-weight: bolder">B<span style="color: crimson">L</span>OW <span style="color: crimson">UP</span></h2>
+  <h2 style="text-align: center;font-family: 'Luckiest Guy', cursive; letter-spacing: 4px; font-size: 3.5em; font-weight: bolder">B<span style="color: crimson">L</span>OG</h2>
 </div>
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
@@ -40,11 +40,11 @@
           <h2><u>Welcome {{ current_user.username }}</u></h2>
         
 
-        <h2>Get started:</h2>
+        <h2>Getting started:</h2>
             <ol>
                 <li>View all blogs ideas in our blog page</li>
                 <li>To get access to comment sign up if knew to this site</li>
-                <li>you can login and logout from your accouunt</li>
+                <li>you can login and logout from your accouunst</li>
                 
             </ol>
 
@@ -53,9 +53,8 @@
         <h2>Get started:</h2>
             <ol>
                 <li>View all blogs ideas in our blog page</li>
-                <li>To get access to comment sign up if knew to our family</li>
-                <li>Or you can login to your account</li>
-                <li>Cheers Mate!!</li>
+                <li>To get access to comment sign up if knew to this site</li>
+                <li>you can login and logout from your accouunst</li>
         {%endif%}
                 {%if current_user.is_authenticated%}
                 <h4 class="text-left"><a class="btn btn-success" href="{{url_for('main.new_blog')}}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Post Blog</a></h4>
