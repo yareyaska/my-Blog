@@ -1,0 +1,35 @@
+{% macro displayCategoryList(category_list) %}
+  {% for category in category_list%}
+        <div>
+
+          <a href="{{url_for('.category',id=category.id)}}"><p>{{category.name|upper}}</p></a>
+        </div>
+
+    {% endfor %}
+{% endmacro %}
+
+{% macro displayBlogs(blog_list) %}
+  {% for blogs in blog_list %}
+  <div class="col-md-12">
+    <div class="well">
+      <div class="row"> 
+        <div class="col-md-10 col-md-offset-1 col-sm-12">
+            <h3>{{blogs.title}}</h3>
+            <a href=" {{url_for('.post_comment',id=blogs.id)}}"> <button class="btn btn-success">Add COMMENT</button></a>
+        </div>
+      </div>
+
+  </div>
+  {% endfor %}
+{% endmacro %}
+
+
+{% macro displaySpecificBlog(specific_blog_list) %}
+ {% for comment in specific_blog_list %}
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top: 4rem;">
+        <hr>
+        <p style="color:black; font-size: 25px;">{{comment.feedback}} </p>
+         <p style="text-align:right; color:#555652; font-size:10px;">{{comment.time_posted.strftime('%Y/%m/%d || %r') }}</p>
+    </div>
+  {% endfor %}
+{% endmacro %}

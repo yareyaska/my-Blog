@@ -1,0 +1,17 @@
+<nav  style="display: flex; text-align:center " class="navbar navbar">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" style="font-family: 'Advent Pro', sans-serif; color: black " href="/">B<span style="color: crimson">L</span>OW <span style="color: crimson">UP</span></a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li style="font-family: 'Advent Pro'" class="active"><a href="/">Home</a></li>
+     {% if current_user.is_authenticated %}
+        <li><a style="font-family: 'Advent Pro'" href="{{url_for('main.profile',uname=current_user.username)}}">Profile</a></li>
+        <li><a style="font-family: 'Advent Pro'" href="{{ url_for('auth.logout') }}">Sign out</a></li>
+
+        {% else %}
+          <li><a style="font-family: 'Advent Pro'" href="{{ url_for('auth.login') }}">Sign in</a></li>
+        {% endif %}
+    </ul>
+  </div>
+</nav>

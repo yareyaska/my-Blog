@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% import 'macros.html' as macro%}
+
+<!-- content block -->
+{% block content %}
+<h3 class="text-center">{{category.name|upper}} BLOG</h3>
+<hr>
+{% if blogs %}
+
+{{ macro.displayBlogs(blogs)}}
+
+{%else%}
+<div class="well">
+  <h4 style="padding:10%; text-align:center; font-size:50px">NO BLOGS AVAILABLE</h4>
+</div>
+
+
+{% endif %}
+<a class="btn btn-primary text-center text-danger" href="/category/blog/new/{{category.id}}">Create a New Blog</a>{% endblock %}

@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      {% extends 'base.html'%}
+      {% import 'macros.html' as macro%}
+  
+  {% block styles%}
+  {{ super() }}
+  <link href="https://fonts.googleapis.com/css?family=Advent+Pro&display=swap" rel="stylesheet">
+  {% endblock %}
+  {% block content %}
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+<body style="overflow-x: hidden">
+  <main style="font-family: 'Advent Pro'">
+  <div style="display: flex;justify-content: center; margin-top: 3rem" class="text-center">
+  <h2 style="text-align: center;font-family: 'Luckiest Guy', cursive; letter-spacing: 4px; font-size: 3.5em; font-weight: bolder">B<span style="color: crimson">L</span>OW <span style="color: crimson">UP</span></h2>
+</div>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      {% for item in quote%}
+      <h3 class="text-center">" {{item.quote}} "</h3>
+      <p class="text-center"> ~ {{item.author}}</p>
+      {% endfor %}
+    </div>
+
+  </div>
+     
+    <div style="font-family:'Advent Pro';font-size: larger" class="container">
+       
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+        {% if current_user.is_authenticated%}
+
+          
+          <h2><u>Welcome {{ current_user.username }}</u></h2>
+        
+
+        <h2>Get started:</h2>
+            <ol>
+                <li>View all blogs ideas in our blog page</li>
+                <li>To get access to comment sign up if knew to this site</li>
+                <li>you can login and logout from your accouunt</li>
+                
+            </ol>
+
+        {% else %}
+
+        <h2>Get started:</h2>
+            <ol>
+                <li>View all blogs ideas in our blog page</li>
+                <li>To get access to comment sign up if knew to our family</li>
+                <li>Or you can login to your account</li>
+                <li>Cheers Mate!!</li>
+        {%endif%}
+                {%if current_user.is_authenticated%}
+                <h4 class="text-left"><a class="btn btn-success" href="{{url_for('main.new_blog')}}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Post Blog</a></h4>
+                {% endif %}
+          {{ macro.displayCategoryList(categories) }}
+        </div>
+        <div class="wells" s>
+        {{ macro.displayBlogs(blogs) }}
+
+        </div>
+<!-- {% endblock %} -->
+    </div>
+</div>
+</main>
+</body>
+</html>

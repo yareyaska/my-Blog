@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-d"> 
+                <h3 class="text-center">{{blogs.name|upper}} BLOG</h3>
+                <hr>
+                {% if blogs %}
+                
+                {{ macro.displayBlogs(blogs)}}
+                
+                {%else%}
+                <div class="well">
+                  <h4 style="padding:12%; text-align:center; font-size:40px">no blog available</h4>
+                </div>
+                
+                
+                {% endif %}
+                <a class="btn btn-primary text-center text-danger" href="/category/blog/new/{{blog.id}}">Write a new Blog</a>
+
+        </div>
+
+            <div class="col-md-6 card">
+                    <h3>{{ blog.title }}</h3>
+                    <p class="overview"> {{ blog.blog_statement }}</p>
+                    <a class ="ratings" href="app/templates/new_blog.html{{blog.id}}">Write a new review</a>
+            </div>
+       
+    </div>
+</div>
+{% endblock %}
